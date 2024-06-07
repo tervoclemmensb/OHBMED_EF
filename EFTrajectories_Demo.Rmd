@@ -31,11 +31,29 @@ Briefly, simulated data used here were generated from simulated uniform age dist
 Here I provide a high level overview and demonstration of some of tools for considering statistical and conceptual tests of trajectories across assessments and datasets. For the sake of streamlining and readability, the more complex code is sourced in a separate file. Let's source these functions and load the first dataset. 
 For reproducibility on your machine you will want to change these paths to the relevant location of the cloned git directory. 
 
+## 2.1 Acquire Data
+This document and it's supporting materials are hosted on github as [tervoclemmensb/OHBMED_EF](https://github.com/tervoclemmensb/OHBMED_EF). We can download that if it doesn't already exist.
+
+If using these tools or functions please cite Tervo-Clemmens et al., 2023, Nature Communications https://www.nature.com/articles/s41467-023-42540-8
+
+```{r fetchdata, include=TRUE,results='hide'}
+if(file.exists("generalfuncs.OHBMdemo.R")) {
+   # nothing to do. we're in the directory with R and RData
+   cat("already in code repository: ", getwd(), "\n")
+} else if(!file.exists("OHBMED_EF/generalfuncs.OHBMdemo.R")) {
+   system("git clone https://github.com/tervoclemmensb/OHBMED_EF")
+}
+
+# go to the cloned
+if(file.exists("OHBMED_EF/generalfuncs.OHBMdemo.R")) setwd("OHBMED_EF") 
+```
+
+## 2.2 Load
+
 ```{r loaddata, include=TRUE,results='hide', message=F, warning=F}
-#source functions (change paths for your machine)
-source("~/Library/Mobile\ Documents/com~apple~CloudDocs/Projects/OHBMEdlecture/Scripts/generalfuncs.OHBMdemo.R")
-#load dataset 1 (change paths for your machine) 
-load(file="~/Library/Mobile\ Documents/com~apple~CloudDocs/Projects/OHBMEdlecture/Data/Simdataset1_EF.Rdata")
+source("generalfuncs.OHBMdemo.R") # functions: plotfitsfunc
+load(file="Simdataset1_EF.Rdata") # "dataset1" object
+load(file="Simdataset2_EF.Rdata") # "dataset2" object
 ```
 
 &nbsp;
@@ -186,7 +204,6 @@ Let's load another dataset. Again, this is a simulated data (now from a second i
 We will load the data, fit the models for all the measures, and visualize by repeating steps from above. 
 ```{r include=TRUE, message=F, warning=F}
 #Dataset 2
-load(file="~/Library/Mobile\ Documents/com~apple~CloudDocs/Projects/OHBMEdlecture/Data/Simdataset2_EF.Rdata")
 alldataset2outcomes<-names(dataset2$simdata2)[names(dataset2$simdata2)!="age"]
 print(alldataset2outcomes)
 
