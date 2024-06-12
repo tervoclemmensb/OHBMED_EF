@@ -1,13 +1,11 @@
+# If using these tools or functions please cite Tervo-Clemmens et al., 2023, Nature Communications https://www.nature.com/articles/s41467-023-42540-8
+
+
+### load packages
 if(require(pacman)==FALSE){
   install.packages("pacman")
 }
-if(require(tidyr)==FALSE){
-  install.packages("tidyr")
-}
-if(require(cowplot)==FALSE){
-  install.packages(cowplot)
-}
-pacman::p_load(scales, mgcv, gamm4,dplyr,ggplot2,gratia,reshape,install = TRUE)
+pacman::p_load(scales, mgcv, lme4, gamm4, dplyr, ggplot2, gratia, reshape, cowplot, tidyr, install = TRUE)
 
 ####convenience functions######
 ttor<-function(ts,nobs){
