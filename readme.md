@@ -8,7 +8,7 @@ Brenden Tervo-Clemmens
 This is a demonstration of tools for considering statistical and
 conceptual tests of trajectories across assessments and datasets. The
 examples used here are from neuropsychological and computerized test of
-goal-directed cognition or executive function Theories of human
+goal-directed cognition or executive function. Theories of human
 neurobehavioral development suggest executive functions mature from
 childhood through adolescence reaching adulthood sometime in the second
 decade of life (e.g., the teenage years in humans). As we
@@ -72,7 +72,7 @@ load(file="Simdataset1_EF.Rdata") # "dataset1" object
 load(file="Simdataset2_EF.Rdata") # "dataset2" object
 ```
 
-      \## 3. Exploring the Data Let’s look at the data by plotting the
+      ## 3. Exploring the Data Let’s look at the data by plotting the
 simulated “raw” data from one test (simulated Design Fluency from the
 D-KEFS) as a function of age.
 
@@ -88,7 +88,7 @@ Let’s model this using the gam function in the mgcv package
 (<https://cran.r-project.org/web/packages/mgcv/index.html>) and
 visualizing the output. Note the example here uses some convenience
 functions from our sourced functions but we will use a basic smoothed
-term of age with the default penalized splines via the formmala
+term of age with the default penalized splines via the formula
 mformula=as.formula(‘outcome\~s(pred)’) and we tell the code that age is
 our predictor variable and DFL_acc is our outcome variable.
 

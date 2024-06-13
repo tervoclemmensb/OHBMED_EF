@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## 1. Data Description and Overview
-This is a demonstration of tools for considering statistical and conceptual tests of trajectories across assessments and datasets. The examples used here are from neuropsychological and computerized test of goal-directed cognition or executive function Theories of human neurobehavioral development suggest executive functions mature from childhood through adolescence reaching adulthood sometime in the second decade of life (e.g., the teenage years in humans). As we (Tervo-Clemmens et al.,2023, Nature Communications) and others have discussed, the development and ultimate maturational timing of such executive functions is often used to demarcate the boundaries of adolescence in clinical practice, research, and policy.
+This is a demonstration of tools for considering statistical and conceptual tests of trajectories across assessments and datasets. The examples used here are from neuropsychological and computerized test of goal-directed cognition or executive function. Theories of human neurobehavioral development suggest executive functions mature from childhood through adolescence reaching adulthood sometime in the second decade of life (e.g., the teenage years in humans). As we (Tervo-Clemmens et al.,2023, Nature Communications) and others have discussed, the development and ultimate maturational timing of such executive functions is often used to demarcate the boundaries of adolescence in clinical practice, research, and policy.
 
 By performing tests across assessments and datasets, we can attempt to draw more robust developmental and lifespan inferences on these questions. 
 
@@ -66,7 +66,7 @@ plot(dataset1$simdata1$age,dataset1$simdata1$DFL_acc)
 ```
 
 We may start to see an existing non-linear trajectory in these data just by visualizing the plot. However, we can of course model this directly. 
-Let's model this using the gam function in the mgcv package (https://cran.r-project.org/web/packages/mgcv/index.html) and visualizing the output. Note the example here uses some convenience functions from our sourced functions but we will use a basic smoothed term of age with the default penalized splines via the formmala mformula=as.formula('outcome~s(pred)') and we tell the code that age is our predictor variable and DFL_acc is our outcome variable. 
+Let's model this using the gam function in the mgcv package (https://cran.r-project.org/web/packages/mgcv/index.html) and visualizing the output. Note the example here uses some convenience functions from our sourced functions but we will use a basic smoothed term of age with the default penalized splines via the formula mformula=as.formula('outcome~s(pred)') and we tell the code that age is our predictor variable and DFL_acc is our outcome variable. 
 ```{r explore2, nclude=TRUE, message=F, warning=F }
 ##internal call to mgcv is model<-mgcv::gam(mformula,data=dataset1$simdata1)
 ##convenience function handles model call and prediction (available via sourced functions from above)
